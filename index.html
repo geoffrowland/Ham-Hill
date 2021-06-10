@@ -6,14 +6,10 @@
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />	
 	<title>Ham Hill</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.5.0/proj4.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="  crossorigin=""></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="L.TileLayer.BetterWMS.js"></script>
     <script src="leaflet-bing-layer.js"></script>
     <script src="leaflet-bng2geojson.js"></script>
@@ -427,7 +423,7 @@
 	    maxZoom: 19,
         bounds: L.latLngBounds([[49.84594174, -6.84831493],[58.7099994, 1.78071283]])
 	});	
-	var somerset = L.tileLayer('https://geo.nls.uk/mapdata3/os/25_inch/somerset/{z}/{x}/{y}.png', {
+	var somerset = L.tileLayer('https://mapseries-tilesets.s3.amazonaws.com/25_inch/somerset/{z}/{x}/{y}.png', {
 		format: 'image/png',
         transparent: true,
         opacity: 0.5,
@@ -436,14 +432,14 @@
 	    maxZoom: 19,
         bounds: L.latLngBounds([[50.82106580, -3.83855710],[51.50398795, -2.21196942]])
 	});
-	var somersetholes = L.tileLayer('https://geo.nls.uk/mapdata3/os/25_inch/holes_england/{z}/{x}/{y}.png', {
+	var somersetholes = L.tileLayer('https://geo.nls.uk/mapdata3/os/25_inch_holes_england/{z}/{x}/{y}.png"', {
 		format: 'image/png',
         transparent: true,
         opacity: 0.5,
         minZoom: 11,
 	    maxNativeZoom: 18,
-	    maxZoom: 19,
-        bounds: L.latLngBounds([[50.82106580, -3.83855710],[51.50398795, -2.21196942]])
+	    maxZoom: 19
+        //bounds: L.latLngBounds([[50.82106580, -3.83855710],[51.50398795, -2.21196942]])
 	});
     var somerset1900 = L.layerGroup([somersetholes, somerset],{
 		attribution: 'Historic OS maps © <a target = "_blank" href="https://maps.nls.uk/" title="National Library of Scotland">NLS</a>'
