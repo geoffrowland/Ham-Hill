@@ -35,7 +35,6 @@
     <script src="https://unpkg.com/mapbox-gl-leaflet/leaflet-mapbox-gl.js"></script>
     <script src="contours.js"></script>
     <script src="water.js"></script>
-    <script src="walls.js"></script>
 	<style>
 		html, body { 
 	    	height: 100%; 
@@ -102,15 +101,8 @@
         maxNativeZoom: 17,
 	    maxZoom: 20
 	});
-    var road = L.tileLayer(serviceUrl + '/Road_3857/{z}/{x}/{y}.png?key=' + apiKey, {
-		//maxNativeZoom:16,
-		maxZoom: 20
-	});
-    var road_overlay = L.tileLayer(serviceUrl + '/Road_3857/{z}/{x}/{y}.png?key=' + apiKey, {
-		opacity:0.5,
-		//maxNativeZoom:16,
-		maxZoom: 20
-	});
+    var road = L.tileLayer(serviceUrl + '/Road_3857/{z}/{x}/{y}.png?key=' + apiKey, { maxNativeZoom:16, maxZoom: 18 });
+    var road_overlay = L.tileLayer(serviceUrl + '/Road_3857/{z}/{x}/{y}.png?key=' + apiKey, { opacity:0.5, maxNativeZoom:16, maxZoom: 18 });
 	
     var bgs50bed = L.tileLayer.betterWms('https://map.bgs.ac.uk/arcgis/services/BGS_Detailed_Geology/MapServer/WMSServer', {
         layers: 'BGS.50k.Bedrock',
@@ -411,7 +403,7 @@
         minZoom: 4,
         maxNativeZoom: 17
 	});
-	var somerset1880 = L.tileLayer('https://geo.nls.uk/mapdata3/os/25_inch/somerset1/{z}/{x}/{y}.png', {
+	var somerset1880 = L.tileLayer('https://geo.nls.uk/mapdata2/os/25_inch/somerset1/{z}/{x}/{y}.png', {
 		format: 'image/png',
         transparent: true,
         opacity: 0.5,
@@ -473,44 +465,7 @@
         "color": "#770000",
         "weight": 2,
         "opacity": 0.5,
-	    //"dashArray": "10 2",
-        "fillOpacity": 0		
-	});
-	    var walls = L.geoJSON(walls,{
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup(
-                feature.properties.id+ 
-                "<br/>"+feature.properties.location+ 
-                "<br/>"+feature.properties.condition
-            );
-		},
-		style: function(feature) {
-        switch (feature.properties.location) {
-            //case 'Northern Spur': return {color: "#ff0000", dashArray: "20 5"};
-            //case 'Montacute-Stoke': return {color: "#00ff00", dashArray: "5 20"};
-            case 'Northern Spur': return {color: "#ff0000"};
-            case 'Montacute-Stoke': return {color: "#00ff00"};
-            case 'Montacute-Norton': return {color: "#0000ff"};
-            case 'Strouds': return {color: "#00ffff"};           
-            case 'Strouds-Warren': return {color: "#ffff00"};
-            case 'Roadside': return {color: "#ff7700"};
-            case "Butcher's": return {color: "#77ff00"};
-            case 'Quarry': return {color: "#ff00ff"};
-        }
-        //switch (feature.properties.condition) {
-        //  case 'A - Excellent, stockproof': return {dashArray: "10 0"};
-        //  case 'B - Sound, minor defects, stockproof': return {dashArray: "8 2"};
-        //  case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "6 4"};
-        //  case 'D - Early stage of dereliction, not stockproof': return {dashArray: "4 6"};           
-        //  case 'E - Derelict, not stockproof': return {dashArray: "2 8"};
-        //  case 'F - Remnant, not stockproof': return {dashArray: "1 9"};
-        //  case 'G - Missing, not stockproof': return {dashArray: "1 10"};
-        //}
-    },
-        //"color": "#FF7700",
-        "weight": 5,
-        "opacity": 0.7,
-	    //"dashArray": "20 20",
+	//"dashArray": "5 5",
         "fillOpacity": 0		
 	});
 	var faults = L.geoJSON(faultsUK,{
@@ -617,7 +572,7 @@
 		minZoom: 4,
 		zoom: 16,
 		maxZoom: 19,
-		layers: [terraindtm, surfacedsm, walls],
+		layers: [terraindtm, surfacedsm],
 		fullscreenControl: true,
 	});
     map.createPane('ontop');
@@ -737,7 +692,6 @@
 		"<span title = 'BGS Geology Linear Features'>Geology Linear</span>": geolin,
 		"<span title = 'OS Contours'>Contours</span>": gl,
 		"<span title = 'OS Water'>Water</span>": gl1,
-		"<span title = 'Walls'>Walls</span>": walls,
 		"<span title = 'Parish outlines'>Parish</span>": parish,
 		"<span title = 'Sites'>Site</span>": site,
 		"<span title = 'Drawing tools'>Draw</span>": drawnItems
@@ -761,7 +715,6 @@
 		'bgs50mass': bgs50mass,
 		'bgs50art': bgs50art,
 		'geolin': geolin,
-		'walls': walls,
 		'parish': parish,
 		'site': site,
 	    'drawnItems': drawnItems
