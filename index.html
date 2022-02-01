@@ -505,14 +505,14 @@
         "fillOpacity": 0		
 	});
 	
-	//var condition = L.geoJSON(walls,{
-        //onEachFeature: function(feature, layer) {
-        //    layer.bindPopup(
-        //        feature.properties.id+ 
-        //        "<br/>"+feature.properties.location+ 
-        //        "<br/>"+feature.properties.condition
-        //    );
-	//},
+	var condition = L.geoJSON(walls,{
+        onEachFeature: function(feature, layer) {
+            layer.bindPopup(
+                feature.properties.id+ 
+                "<br/>"+feature.properties.location+ 
+                "<br/>"+feature.properties.condition
+            );
+	},
 	//style: function(feature) {
         //switch (feature.properties.location) {
         //  case 'A - Excellent, stockproof': return {dashArray: "10 0"};
@@ -524,12 +524,12 @@
         //  case 'G - Missing, not stockproof': return {dashArray: "1 10"};
         //}
         //},
-        //"color": "#FF7700",
-        //"weight": 5,
-        //"opacity": 0.7,
+        "color": "#FF7700",
+        "weight": 5,
+        "opacity": 0.7,
 	    //"dashArray": "20 20",
-        //"fillOpacity": 0		
-	//});	
+        "fillOpacity": 0		
+	});	
 	
 	var faults = L.geoJSON(faultsUK,{
         "color": "#000000",
@@ -757,7 +757,7 @@
 		"<span title = 'OS Contours'>Contours</span>": gl,
 		"<span title = 'OS Water'>Water</span>": gl1,
 		"<span title = 'Dry stone wallsWalls'>Walls</span>": walls,				
-		//"<span title = 'Condition'>Wall condition</span>": condition,
+		"<span title = 'Condition'>Wall condition</span>": condition,
 		"<span title = 'Parish outlines'>Parish</span>": parish,
 		"<span title = 'Sites'>Site</span>": site,
 		"<span title = 'Drawing tools'>Draw</span>": drawnItems
@@ -782,7 +782,7 @@
 		'bgs50art': bgs50art,
 		'geolin': geolin,
 		'walls': walls,
-	        //'condition': condition,
+	        'condition': condition,
 		'parish': parish,
 		'site': site,
 	    'drawnItems': drawnItems
