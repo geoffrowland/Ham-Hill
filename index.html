@@ -36,6 +36,7 @@
     <script src="contours.js"></script>
     <script src="water.js"></script>
     <script src="walls.js"></script>
+	<script src="wallcondition.js"></script>
 	<style>
 		html, body { 
 	    	height: 100%; 
@@ -505,7 +506,7 @@
         "fillOpacity": 0		
 	});
 	
-	var wallcondition = L.geoJSON(walls,{
+	var wallcondition = L.geoJSON(wallcondition,{
         onEachFeature: function(feature, layer) {
             layer.bindPopup(
                 feature.properties.id+ 
