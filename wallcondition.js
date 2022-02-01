@@ -1,4 +1,4 @@
-var walls={
+var wallcondition={
 "type":"FeatureCollection",
 "features":[
 {"type":"Feature","properties":{"stroke":"#ff7f00","stroke-width":5,"stroke-opacity":1,"id":"ns1","location":"Northern Spur","land-use-1":"","land-use-2":"","fencing":"F2 - Stockproof and continuous post and wire","condition":"F - Remnant, not stockproof","height":0.2,"width":0.75,"wall-style":"","wall-stone":"","through-stone":"","top-stone":"","stone-type":"","plant-community":"","fauna":"","history":"","notes":""},"geometry":{"type":"LineString","coordinates":[[-2.744818478822708,50.953345331881934],[-2.7443537861108775,50.95330858164056]]}},
