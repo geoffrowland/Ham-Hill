@@ -514,19 +514,19 @@
                 "<br/>"+feature.properties.condition
             );
 	},
-	//style: function(feature) {
-        //switch (feature.properties.location) {
-        //  case 'A - Excellent, stockproof': return {dashArray: "10 0"};
-        //  case 'B - Sound, minor defects, stockproof': return {dashArray: "8 2"};
-        //  case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "6 4"};
-        //  case 'D - Early stage of dereliction, not stockproof': return {dashArray: "4 6"};           
-        //  case 'E - Derelict, not stockproof': return {dashArray: "2 8"};
-        //  case 'F - Remnant, not stockproof': return {dashArray: "1 9"};
-        //  case 'G - Missing, not stockproof': return {dashArray: "1 10"};
-        //}
-        //},
+	style: function(feature) {
+        switch (feature.properties.location) {
+          case 'A - Excellent, stockproof': return {dashArray: "10 0"};
+          case 'B - Sound, minor defects, stockproof': return {dashArray: "9"};
+          case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "8"};
+          case 'D - Early stage of dereliction, not stockproof': return {dashArray: "7"};           
+          case 'E - Derelict, not stockproof': return {dashArray: "5"};
+          case 'F - Remnant, not stockproof': return {dashArray: "4"};
+          case 'G - Missing, not stockproof': return {dashArray: "3"};
+        }
+        },
         "color": "#FF7700",
-        "weight": 5,
+        "weight": 4,
         "opacity": 0.7,
 	    //"dashArray": "20 20",
         "fillOpacity": 0		
