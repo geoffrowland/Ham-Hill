@@ -483,7 +483,7 @@
                 "<br/>"+feature.properties.location+ 
                 "<br/>"+feature.properties.condition
             );
-		},
+        },
 	style: function(feature) {
         switch (feature.properties.location) {
             //case 'Northern Spur': return {color: "#ff0000", dashArray: "20 5"};
@@ -505,7 +505,7 @@
         "fillOpacity": 0		
 	});
 	
-	var condition = L.geoJSON(walls,{
+	var wallcondition = L.geoJSON(walls,{
         onEachFeature: function(feature, layer) {
             layer.bindPopup(
                 feature.properties.id+ 
@@ -757,7 +757,7 @@
 		"<span title = 'OS Contours'>Contours</span>": gl,
 		"<span title = 'OS Water'>Water</span>": gl1,
 		"<span title = 'Dry stone wallsWalls'>Walls</span>": walls,				
-		"<span title = 'Condition'>Wall condition</span>": condition,
+		"<span title = 'Condition'>Wall condition</span>": wallcondition,
 		"<span title = 'Parish outlines'>Parish</span>": parish,
 		"<span title = 'Sites'>Site</span>": site,
 		"<span title = 'Drawing tools'>Draw</span>": drawnItems
@@ -782,7 +782,7 @@
 		'bgs50art': bgs50art,
 		'geolin': geolin,
 		'walls': walls,
-	        'condition': condition,
+	        'wallcondition': wallcondition,
 		'parish': parish,
 		'site': site,
 	    'drawnItems': drawnItems
