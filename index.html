@@ -499,10 +499,8 @@
             case 'Quarry': return {color: "#ff00ff"};
         }
         },
-        //"color": "#FF7700",
         "weight": 5,
-        "opacity": 0.7,
-	    //"dashArray": "20 20",
+        "opacity": 0.8,
         "fillOpacity": 0		
 	});
 	
@@ -517,7 +515,7 @@
 	style: function(feature) {
         switch (feature.properties.condition) {
           case 'A - Excellent, stockproof': return {dashArray: "10 0"};
-          case 'B - Sound, minor defects, stockproof': return {dashArray: "10 6"};
+          case 'B - Sound, minor defects, stockproof': return {dashArray: "10 7"};
           case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "8 8"};
           case 'D - Early stage of dereliction, not stockproof': return {dashArray: "6 10"};           
           case 'E - Derelict, not stockproof': return {dashArray: "4 10"};
@@ -526,9 +524,8 @@
         }
         },
         "color": "#FF7700",
-        "weight": 4,
-        "opacity": 0.7,
-	    //"dashArray": "20 20",
+        "weight": 5,
+        "opacity": 0.8,
         "fillOpacity": 0		
 	});	
 	
@@ -636,7 +633,7 @@
 		minZoom: 4,
 		zoom: 16,
 		maxZoom: 19,
-		layers: [terraindtm, surfacedsm, walls],
+		layers: [terraindtm, surfacedsm, wallcondition],
 		fullscreenControl: true,
 	});
     map.createPane('ontop');
@@ -783,7 +780,7 @@
 		'bgs50art': bgs50art,
 		'geolin': geolin,
 		'walls': walls,
-	        'wallcondition': wallcondition,
+	    'wallcondition': wallcondition,
 		'parish': parish,
 		'site': site,
 	    'drawnItems': drawnItems
