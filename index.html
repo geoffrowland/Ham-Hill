@@ -517,12 +517,12 @@
 	style: function(feature) {
         switch (feature.properties.location) {
           case 'A - Excellent, stockproof': return {dashArray: "10 0"};
-          case 'B - Sound, minor defects, stockproof': return {dashArray: "9"};
-          case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "8"};
-          case 'D - Early stage of dereliction, not stockproof': return {dashArray: "7"};           
-          case 'E - Derelict, not stockproof': return {dashArray: "5"};
-          case 'F - Remnant, not stockproof': return {dashArray: "4"};
-          case 'G - Missing, not stockproof': return {dashArray: "3"};
+          case 'B - Sound, minor defects, stockproof': return {dashArray: "10 6"};
+          case 'C - Potential or advancing deterioration, stockproof': return {dashArray: "8 8"};
+          case 'D - Early stage of dereliction, not stockproof': return {dashArray: "6 10"};           
+          case 'E - Derelict, not stockproof': return {dashArray: "4 10"};
+          case 'F - Remnant, not stockproof': return {dashArray: "2 10"};
+          case 'G - Missing, not stockproof': return {dashArray: "3 10"};
         }
         },
         "color": "#FF7700",
