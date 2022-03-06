@@ -698,11 +698,11 @@
              featureGroup: drawnItems
          }
      });
-     map.addControl(drawControl);
-     map.on(L.Draw.Event.CREATED, function (event) {
-        var layer = event.layer;
-        drawnItems.addLayer(layer);
-    });
+     // map.addControl(drawControl);
+     // map.on(L.Draw.Event.CREATED, function (event) {
+     // var layer = event.layer;
+     // drawnItems.addLayer(layer);
+     // });
 	
     //var site = omnivore.csv('site.csv', null, siteData).on('ready', function() {}).addTo(map);
     var site = omnivore.csv('site.csv', null, siteData).on('ready', function() {});
@@ -757,8 +757,8 @@
 		"<span title = 'Dry stone wallsWalls'>Walls</span>": walls,				
 		"<span title = 'Condition'>Wall condition</span>": wallcondition,
 		"<span title = 'Parish outlines'>Parish</span>": parish,
-		"<span title = 'Sites'>Site</span>": site,
-		"<span title = 'Drawing tools'>Draw</span>": drawnItems
+		"<span title = 'Sites'>Site</span>": site
+		//"<span title = 'Drawing tools'>Draw</span>": drawnItems
 	};
     var allMapLayers = { 
 		'terraindtm': terraindtm,
