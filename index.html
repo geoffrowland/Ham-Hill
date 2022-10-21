@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="  crossorigin=""></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="leaflet-tilelayer-colorfilter.min.js"></script>
     <script src="L.TileLayer.BetterWMS.js"></script>
     <script src="leaflet-bing-layer.js"></script>
     <script src="leaflet-bng2geojson.js"></script>
@@ -460,7 +461,15 @@
 	'saturate:150%'
 	],
 	bounds: L.latLngBounds([[50.829421, -2.95408],[51.066024, -2.585679]])	
-	});
+    });
+    var southpethertoncolor = L.tileLayer.colorFilter('https://maps.georeferencer.com/georeferences/3397eff3-62a4-5e58-be1e-9344e35b721f/2020-04-03T11:34:17.981564Z/map/{z}/{x}/{y}.png?key=gMEmp7wGJTRoTdtU7Ljj', {
+	minZoom: 10,
+	filter: [
+	'greyscale:50%',
+	'saturate:150%'
+	],
+	bounds: L.latLngBounds([[50.829421, -2.95408],[51.066024, -2.585679]])	
+    });
     var somersettithe = L.tileLayer.wms('https://dorsetgeologistsassociation.org/tithe/arcgis/services/base/1840s_tithe_128dpi_mk4/MapServer/WmsServer?', {
         layers: '0',
         transparent: true,
@@ -756,6 +765,7 @@
 		"<span title = 'OS First Edition 25 inch ~1880'>OS 1st Edition ~1880</span>": somerset1880,
 		//"<span title = 'Tithe Maps ~1840'>Tithe Maps ~1840</span>": somersettithe,
 		"<span title = 'OS Drawings 2 inch ~1800'>OS Drawings ~1800</span>": southpethertondraw,
+		"<span title = 'OS Drawings colour ~1800'>OS Drawings colour~1800</span>": southpethertoncolor,
 		"<span title = 'BGS Geology Bedrock'>Geology Bedrock</span>": geobed,
 		"<span title = 'BGS Geology Superficial'>Geology Surface</span>": geosup,
 		"<span title = 'BGS Geology Mass Movement'>Geology Landslip</span>": bgs50mass,
@@ -780,6 +790,7 @@
 		'osm': osm,
 		'osmbase': osmbase,
 	        'southpethertondraw': southpethertondraw,
+	        'southpethertoncolor': southpethertoncolor,
 	        'somerset1880': somerset1880,
 		'somerset1900': somerset1900,
 		'os10k': os10k,
