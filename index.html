@@ -453,6 +453,14 @@
     var somerset1900 = L.layerGroup([somersetholes, somerset],{
 		attribution: 'Historic OS maps © <a target = "_blank" href="https://maps.nls.uk/" title="National Library of Scotland">NLS</a>'
     });
+    var southpethertondraw = L.tileLayer('https://maps.georeferencer.com/georeferences/3397eff3-62a4-5e58-be1e-9344e35b721f/2020-04-03T11:34:17.981564Z/map/{z}/{x}/{y}.png?key=gMEmp7wGJTRoTdtU7Ljj', {
+	minZoom: 10,
+	filter: [
+	'greyscale:50%',
+	'saturate:150%'
+	],
+	bounds: L.latLngBounds([[50.829421, -2.95408],[51.066024, -2.585679]])	
+	});
     var somersettithe = L.tileLayer.wms('https://dorsetgeologistsassociation.org/tithe/arcgis/services/base/1840s_tithe_128dpi_mk4/MapServer/WmsServer?', {
         layers: '0',
         transparent: true,
@@ -747,6 +755,7 @@
 		"<span title = 'OS Second Edition 25 inch ~1900'>OS 2nd Edition ~1900</span>": somerset1900,		
 		"<span title = 'OS First Edition 25 inch ~1880'>OS 1st Edition ~1880</span>": somerset1880,
 		//"<span title = 'Tithe Maps ~1840'>Tithe Maps ~1840</span>": somersettithe,
+		"<span title = 'OS Drawings 2 inch ~1800'>OS Drawings ~1800</span>": southpethertondraw,
 		"<span title = 'BGS Geology Bedrock'>Geology Bedrock</span>": geobed,
 		"<span title = 'BGS Geology Superficial'>Geology Surface</span>": geosup,
 		"<span title = 'BGS Geology Mass Movement'>Geology Landslip</span>": bgs50mass,
@@ -770,7 +779,8 @@
 		'opendataonly': opendataonly,
 		'osm': osm,
 		'osmbase': osmbase,
-	    'somerset1880': somerset1880,
+	        'southpethertondraw': southpethertondraw,
+	        'somerset1880': somerset1880,
 		'somerset1900': somerset1900,
 		'os10k': os10k,
 		'aerialtransp': aerialtransp,
