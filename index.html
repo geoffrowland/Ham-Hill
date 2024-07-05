@@ -714,12 +714,16 @@
              featureGroup: drawnItems
          }
      });
-     // map.addControl(drawControl);
-     // map.on(L.Draw.Event.CREATED, function (event) {
-     // var layer = event.layer;
-     // drawnItems.addLayer(layer);
-     // });
-	
+     map.addControl(drawControl);
+     map.on(L.Draw.Event.CREATED, function (event) {
+       var layer = event.layer;
+       drawnItems.addLayer(layer);
+     });
+     L.easyButton('fa-download', function(btn, map){
+	  var downloadData = JSON.stringify(drawnItems.toGeoJSON(), null, 2);
+	  var blob = new Blob([downloadData], {type: "text/json;charset=utf-8"});
+          saveAs(blob, "map.geojson");
+      },'Download GeoJSON').addTo( map );
     //var site = omnivore.csv('site.csv', null, siteData).on('ready', function() {}).addTo(map);
     var site = omnivore.csv('site.csv', null, siteData).on('ready', function() {});
 	
